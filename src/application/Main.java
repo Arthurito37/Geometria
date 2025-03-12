@@ -39,17 +39,20 @@ public class Main {
                     System.out.println("3 - Comprimento do circulo");
                     a = scanner.nextInt();
                     if (a ==1) {
+                        System.out.println("Voce escolheu o valor do raio.");
                         System.out.println("Digite o Valor do Raio:");
                         x.raio = scanner.nextDouble();
                         double areadoCirculo = pi * (x.raio * x.raio);
                         System.out.printf("O valor da area e %.2f\n", areadoCirculo);
                     } else if (a == 2){
+                        System.out.println("Voce escolheu o valor do diametro");
                         System.out.println("Digite o Valor do Diametro:");
                         x.diametro = scanner.nextDouble();
                         x.raio= x.diametro/2;
                         double areadoCirculo = pi * (x.raio * x.raio);
                         System.out.printf("O valor da area e %.2f\n", areadoCirculo);
                     } else if (a == 3) {
+                        System.out.println("Voce escolheu o comprimento do circulo.");
                         System.out.println("Digite o Valor do comprimento do circulo?:");
                         x.comprimetoDoCirculo = scanner.nextDouble();
                         x.raio = (x.comprimetoDoCirculo*pi)/(2*pi);
@@ -67,11 +70,46 @@ public class Main {
                     }
                 }
             } else if (a == 2) {
+                c = 0;
                 System.out.println("Voce escolheu a area do quadrado.");
-                System.out.println("Digite o valor do lado do quadrado:");
-                y.lado = scanner.nextDouble();
-                double areaDoQuadrado = y.lado * y.lado;
-                System.out.printf("O valor da area e %.2f\n", areaDoQuadrado);
+
+                while (c == 0) {
+                    System.out.println("Qual valor voce tem em maos? O lado do quadrado, o valor do perimetro ou a diagonal?");
+                    System.out.println("1 - Lado.");
+                    System.out.println("2 - Perimetro.");
+                    System.out.println("3 - Diagonal.");
+                    a = scanner.nextInt();
+                    if (a == 1) {
+                        System.out.println("Voce escolheu o lado do quadrado.");
+                        System.out.println("Digite o valor do lado do quadrado:");
+                        y.lado = scanner.nextDouble();
+                        double areaDoQuadrado = y.lado * y.lado;
+                        System.out.printf("O valor da area e %.2f\n", areaDoQuadrado);
+                    } else if (a == 2) {
+                        System.out.println("Voce escolheu o valor do perimetro.");
+                        System.out.println("Digite o valor do perimetro");
+                        y.perimetro = scanner.nextDouble();
+                        y.lado = y.perimetro / 4;
+                        double areaDoQuadrado = y.lado * y.lado;
+                        System.out.printf("O valor da area e %.2f\n", areaDoQuadrado);
+                    } else if (a == 3) {
+                        System.out.println("Voce escolheu o valor da diagonal.");
+                        System.out.println("Digite o valor da diagonal:");
+                        y.diagonal = scanner.nextDouble();
+                        y.lado = y.diagonal * (Math.sqrt(2) / Math.sqrt(2));
+                        double areaDoQuadrado = y.lado * y.lado;
+                        System.out.printf("O valor da area e %.2f\n", areaDoQuadrado);
+                    } else {
+                        System.out.println("Escolha um dos valores citados");
+                    }
+                    System.out.println("Deseja realizar outro calculo calculo da area do quadrado?");
+                    System.out.println("1 - Sim.");
+                    System.out.println("2 - Nao.");
+                    a = scanner.nextInt();
+                    if (a == 2) {
+                        c = 1;
+                    }
+                }
             } else if (a == 3) {
                 System.out.println("Voce escolheu a area do retangulo.");
                 System.out.println("Digite o valor do base do retangulo:");
@@ -132,14 +170,14 @@ public class Main {
             } else {
                 System.out.println("Escolha uma opcao valida!");
             }
-            /* System.out.println("Deseja encontrar a area de outra forma geometrica?");
+            System.out.println("Deseja encontrar a area de outra forma geometrica?");
             System.out.println("1 - Sim");
             System.out.println("2 - Nao");
             a = scanner.nextInt();
             if (a == 2){
                 b = b+1;
                 System.out.println("Encerrando programa...");
-            } */
+            }
         }
     }
 }
